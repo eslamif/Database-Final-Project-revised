@@ -1,0 +1,87 @@
+#**** SETUP TABLES ****
+
+#Create Users Table
+CREATE TABLE users (
+id_user INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+f_name VARCHAR(255),
+l_name VARCHAR(255),
+email VARCHAR(255),
+password VARCHAR(255),
+dob DATE NOT NULL
+)ENGINE=INNODB;
+
+
+#Create Topics Table
+CREATE TABLE topics(
+id_topic INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+title VARCHAR(255)
+)ENGINE=INNODB;
+
+
+#Create Quotes Table
+CREATE TABLE quotes (
+id_quote INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+title VARCHAR(255),
+quote VARCHAR(255),
+fk_user INT(11) UNSIGNED,
+fk_topic INT(11) UNSIGNED,
+FOREIGN KEY(fk_topic) REFERENCES topics(id_topic),
+FOREIGN KEY(fk_user) REFERENCES users(id_user)
+)ENGINE=INNODB;
+
+
+#create Friends Table
+CREATE TABLE friends(
+id_friend INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+f_name VARCHAR(255),
+l_name VARCHAR(255),
+email VARCHAR(255)
+)ENGINE=INNODB;
+
+
+#Create Share Table
+CREATE TABLE share (
+topic INT(11) UNSIGNED,
+quote INT(11) UNSIGNED,
+FOREIGN KEY(topic) REFERENCES topics(id_topic) ON DELETE CASCADE,
+FOREIGN KEY(quote) REFERENCES quotes(id_quote) ON DELETE CASCADE
+)ENGINE=INNODB;
+
+
+#Create Relationship Table
+CREATE TABLE relationship(
+user INT(11) UNSIGNED,
+friend INT(11) UNSIGNED,
+type INT(11),
+FOREIGN KEY(user) REFERENCES users(id_user) ON DELETE CASCADE,
+FOREIGN KEY(friend) REFERENCES friends(id_friend) ON DELETE CASCADE
+)ENGINE=INNODB;
+
+
+
+#**** QUERIES ****
+
+prepare("INSERT INTO users(f_name, l_name, email, password, dob) VALUES (?, ?, ?, ?, ?)")
+
+
+$mysqli->prepare("INSERT INTO quotes(title, quote) VALUES (?, ?)")
+
+
+$mysqli->prepare("INSERT INTO topics(title) VALUES (?)")
+
+
+$mysqli->prepare("INSERT INTO friends(f_name, l_name, email) VALUES (?, ?, ?)")
+
+
+$mysqli->prepare("SELECT quote FROM quotes")
+
+
+
+$mysqli->prepare("SELECT title FROM topics")
+
+
+
+$mysqli->prepare("SELECT f_name FROM friends")
+
+
+

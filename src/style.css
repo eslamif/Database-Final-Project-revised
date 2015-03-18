@@ -1,0 +1,54 @@
+#actionMenu ul, #newQuoteForm ul, #newFriend ul, #currentMembers ul{
+	list-style-type: none;
+}
+
+
+#newQuoteForm, #newFriend, #databaseResults {
+	clear: both;
+}
+
+
+#newQuoteForm  textarea {
+	text-align: justify;
+}
+
+.header {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #779277;
+	font-family: cursive;
+	font-size: 90%;
+}
+
+body {
+    background-color: #DFEADF;
+}
+
+form {
+	background-color: #C4D9C4;
+	display: inline-block;
+
+}
+
+#menuWrapper {
+	text-align: center;
+}
+
+#quotesMenu, #friendsMenu {
+	display: inline-block;
+	float: none;
+	vertical-align: text-top;
+}
+
+#databaseResults {
+	background-color: #C4D9C4;	
+}
+
+#intro {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;	
+	font-family: cursive;
+	width: 75%;
+}

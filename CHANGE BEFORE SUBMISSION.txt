@@ -1,0 +1,3 @@
+- Change all "local" keywords to new server.
+- Change $dbuser
+- change $dbpass
