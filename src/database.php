@@ -10,7 +10,7 @@ if(strtolower($method) != 'post' || !isset($_GET['action']) || ($_GET['action'] 
 	$_GET['action'] != 'login' && $_GET['action'] != 'add_quote' && $_GET['action'] != 'add_friend' &&
 	$_GET['action'] != 'getQuotes' && $_GET['action'] != 'getTopics' && $_GET['action'] != 'getFriends')) {
 	echo "You may not access this page directly. Please go back to the 
-	<a href=http://web.engr.oregonstate.edu/~eslamif/final_project/src/index.php>Login</a> page";
+	<a href=http://web.engr.oregonstate.edu/~eslamif/final_project_rev/src/index.php>Login</a> page";
 }
 
 //Register New User
@@ -222,7 +222,7 @@ function session($http) {
 		session_destroy();
 		
 		//Redirect user
-		$redirect = "http://web.engr.oregonstate.edu/~eslamif/final_project/src/index.php";
+		$redirect = "http://web.engr.oregonstate.edu/~eslamif/final_project_rev/src/index.php";
 		header("Location: {$redirect}", true);
 		die();			
 	}

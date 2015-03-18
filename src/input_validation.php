@@ -8,7 +8,7 @@ header('Content-Type: text/html');
 $method = $_SERVER['REQUEST_METHOD'];
 if(strtolower($method) != 'post' || !isset($_GET['action']) || $_GET['action'] != 'validate') {
 	echo "You may not access this page directly. Please go back to the 
-	<a href=http://web.engr.oregonstate.edu/~eslamif/final_project/src/index.php>Login</a> page";
+	<a href=http://web.engr.oregonstate.edu/~eslamif/final_project_rev/src/index.php>Login</a> page";
 }
 
 //Validate First Name

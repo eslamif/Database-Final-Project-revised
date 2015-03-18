@@ -9,7 +9,7 @@ session_start();
 	
 if(!isset($_SESSION['loggedIn'])) {
 	echo "You must log in first. Please click 
-	<a href=http://web.engr.oregonstate.edu/~eslamif/final_project/src/index.php>here</a> to log in.";	
+	<a href=http://web.engr.oregonstate.edu/~eslamif/final_project_rev/src/index.php>here</a> to log in.";	
 }
 else if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true){
 	displayMembersPage();
@@ -138,8 +138,8 @@ else if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true){
 	</div>
 	
 	
-	<script type="text/javascript" src="http://web.engr.oregonstate.edu/~eslamif/final_project/src/jquery.js"></script>	
-	<script type="text/javascript" src="http://web.engr.oregonstate.edu/~eslamif/final_project/src/jsFunctions.js"></script>	
+	<script type="text/javascript" src="http://web.engr.oregonstate.edu/~eslamif/final_project_rev/src/jquery.js"></script>	
+	<script type="text/javascript" src="http://web.engr.oregonstate.edu/~eslamif/final_project_rev/src/jsFunctions.js"></script>	
 </body>
 </html>
 

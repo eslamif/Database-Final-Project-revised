@@ -20,7 +20,7 @@ function addNewQuote() {
 			//Redirect New Member to Member's Page
 			if(httpResponse == "quote_added") {
 				alert("Your quoted was added successfully");
-				window.location = "http://web.engr.oregonstate.edu/~eslamif/final_project/src/members.php";
+				window.location = "http://web.engr.oregonstate.edu/~eslamif/final_project_rev/src/members.php";
 			}
 		}); 
 }
@@ -37,7 +37,7 @@ function loginMember() {
 		function(httpResponse) {
 			if(httpResponse == "member_exists")
 				//Redirect to Member's Page
-				window.location = "http://web.engr.oregonstate.edu/~eslamif/final_project/src/members.php";
+				window.location = "http://web.engr.oregonstate.edu/~eslamif/final_project_rev/src/members.php";
 			else
 				alert("The email and password don't match an existing account. Please try again or register a new account");
 		});
@@ -64,7 +64,7 @@ function registerUser() {
 
 			//Redirect New Member to Member's Page
 			if(httpResponse == "user_registered") {
-				window.location = "http://web.engr.oregonstate.edu/~eslamif/final_project/src/members.php";
+				window.location = "http://web.engr.oregonstate.edu/~eslamif/final_project_rev/src/members.php";
 			}
 		}); 
 }
@@ -242,7 +242,7 @@ function unhideAddFriend() {
 
 //Logout of Session
 function logOut() {
-	window.location = "http://web.engr.oregonstate.edu/~eslamif/final_project/src/database.php?action=end";
+	window.location = "http://web.engr.oregonstate.edu/~eslamif/final_project_rev/src/database.php?action=end";
 }
 
 //Validate newFriendForm User Inputs
@@ -319,7 +319,7 @@ function addNewFriend() {
 			//Redirect New Member to Member's Page
 			if(httpResponse == "friend_added") {
 				alert("Your friend was added successfully");
-				window.location = "http://web.engr.oregonstate.edu/~eslamif/final_project/src/members.php";
+				window.location = "http://web.engr.oregonstate.edu/~eslamif/final_project_rev/src/members.php";
 			}
 		}); 
 }
