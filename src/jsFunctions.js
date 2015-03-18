@@ -29,10 +29,12 @@ function addNewQuote() {
 
 //Login Existing User
 function loginMember() {
-	$.post("database.php?action=login", 
+	loginStr = 'login';
+	$.post("database.php",
 	{
 		memberEmail: $('#memberEmail').val(),
-		memberPass: $('#memberPass').val()
+		memberPass: $('#memberPass').val(),
+		action: loginStr
 	}, 
 		function(httpResponse) {
 			if(httpResponse == "member_exists")

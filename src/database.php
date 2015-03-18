@@ -3,17 +3,17 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 header('Content-Type: text/html');
-
+/*
 //Validate access is via POST REQUEST and from index.php
 $method = $_SERVER['REQUEST_METHOD'];
-if(strtolower($method) != 'post' || !isset($_GET['action']) || ($_GET['action'] != 'register' &&
-	$_GET['action'] != 'login' && $_GET['action'] != 'add_quote' && $_GET['action'] != 'add_friend' &&
+if(strtolower($method) != 'post' || !isset($_GET['action']) || !isset($_POST['action']) || ($_GET['action'] != 'register' &&
+	$_POST['action'] != 'login' && $_GET['action'] != 'add_quote' && $_GET['action'] != 'add_friend' &&
 	$_GET['action'] != 'getQuotes' && $_GET['action'] != 'getTopics' && $_GET['action'] != 'getFriends' &&
 	$_POST['action'] != 'end')) {
 	echo "You may not access this page directly. Please go back to the 
 	<a href=http://web.engr.oregonstate.edu/~eslamif/final_project_rev/src/index.php>Login</a> page";
 }
-
+*/
 //Register New User
 if(isset($_GET['action']) && $_GET['action'] == 'register') {
 	$f_name = $_POST['f_name'];
@@ -27,19 +27,18 @@ if(isset($_GET['action']) && $_GET['action'] == 'register') {
 
 	//Save New User to Database & Start Session
 	if(setSqlNewUser($_POST, $mysqli) == true) {
-		session_start();
 		session($_POST);
 		echo "user_registered";
 	}
 }
 
 //Logout of Session
-if(isset($_GET['action']) && $_GET['action'] == 'end') {
-	session($_GET);
+if(isset($_POST['action']) && $_POST['action'] == 'end') {
+	session($_POST);
 }
 
 //Login Existing User
-if(isset($_GET['action']) && $_GET['action'] == 'login') {
+if(isset($_POST['action']) && $_POST['action'] == 'login') {
 	$inputEmail = $_POST['memberEmail'];
 	$inputPass = $_POST['memberPass'];		
 		
@@ -52,7 +51,6 @@ if(isset($_GET['action']) && $_GET['action'] == 'login') {
 	
 	if(isUserInDb($DbUserAndPass, $inputEmail, $inputPass) == true) {	//Validate Email		
 		//Start Tracking Session
-		session_start();
 		session($_POST);
 
 		echo "member_exists";
@@ -215,17 +213,18 @@ function getUserAndPassword($mysqli) {
 //Track Session
 function session($http) {
 	//End Session
-	//session_start();
+	session_start();
 	if(isset($http['action']) && $http['action'] == 'end') {
-		echo "session is ending";
+		//echo "session is ending";
 		//End session
 		$_SESSION = array();
 		session_destroy();
+		//die();	
 		
 		//Redirect user
 		$redirect = "http://web.engr.oregonstate.edu/~eslamif/final_project_rev/src/index.php";
 		header("Location: {$redirect}", true);
-		die();			
+		
 	}
 	
 	//Set username and user status as logged in
