@@ -50,11 +50,11 @@ if(isset($_GET['action']) && $_GET['action'] == 'login') {
 	$jsonStr = json_encode($DbUserAndPass);				//encode to JSON string
 	
 	if(isUserInDb($DbUserAndPass, $inputEmail, $inputPass) == true) {	//Validate Email		
-		echo "member_exists";
-		
 		//Start Tracking Session
 		session_start();
-		session($_POST);		
+		session($_POST);
+
+		echo "member_exists";
 	}
 	else
 		echo "DNE";
