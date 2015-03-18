@@ -36,7 +36,11 @@ else if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true){
 	
 	<div id="menuWrapper">		
 		<div id="logOutDiv">
-			<input type="button" value="Logout" onClick="logOut()">
+			<form action="database.php" method="post">
+				<input type="hidden" name="action" value="end">
+				<input type="submit" value="Logout">
+			<!-- <input type="button" value="Logout" onClick="logOut()"> -->
+			</form>
 		</div>
 		
 		<section id="actionMenu">
